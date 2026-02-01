@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Will You Be My Valentine?</title>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+        height: 100vh;
+        background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .card {
+        background: white;
+        width: 90%;
+        max-width: 380px;
+        padding: 25px;
+        border-radius: 20px;
+        text-align: center;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        animation: pop 1s ease;
+    }
+
+    @keyframes pop {
+        0% { transform: scale(0.7); opacity: 0; }
+        100% { transform: scale(1); opacity: 1; }
+    }
+
+    h1 {
+        color: #ff4d6d;
+        margin-bottom: 10px;
+    }
+
+    p {
+        color: #555;
+        margin-bottom: 15px;
+        font-size: 15px;
+    }
+
+    .joke {
+        font-size: 14px;
+        color: #777;
+        margin-bottom: 15px;
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    button {
+        padding: 12px 22px;
+        border: none;
+        border-radius: 30px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    #yes {
+        background: #ff4d6d;
+        color: white;
+    }
+
+    #yes:hover {
+        transform: scale(1.1);
+    }
+
+    #no {
+        background: #ddd;
+    }
+
+    .heart {
+        position: absolute;
+        color: #ff4d6d;
+        font-size: 20px;
+        animation: float 4s linear infinite;
+    }
+
+    @keyframes float {
+        0% { transform: translateY(0); opacity: 1; }
+        100% { transform: translateY(-100vh); opacity: 0; }
+    }
+
+    .final {
+        display: none;
+        text-align: center;
+        animation: pop 1s ease;
+    }
+
+    .final h2 {
+        color: #ff4d6d;
+        margin-bottom: 10px;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="card" id="card">
+    <h1>Hey Aishwarya 💖</h1>
+
+    <p>
+        cutu this is for you,<br>
+        you somehow turned my ordinary days into my favorite ones 💕
+    </p>
+
+    <p class="joke">
+        Also, let’s be honest —<br>
+        you already know the answer 😌
+    </p>
+
+    <p class="joke">
+        (Clicking "No" can lead to sadness of a cat specie named shreyu 🥲)
+    </p>
+
+    <h2>Will you be my Valentine honey? 🌹</h2>
+
+    <div class="buttons">
+        <button id="yes" onclick="yesClicked()">Yes 💘</button>
+        <button id="no" onmouseover="moveNo()">No 🙈</button>
+    </div>
+</div>
+
+<div class="card final" id="final">
+    <h2>YAYYY 🥹❤️</h2>
+
+    <p>
+        Congratulations 🎉<br>
+        You just unlocked to be my lifetime valentine:<br>
+        <b>Lifetime Valentine Status</b> 💕
+    </p>
+
+    <p class="joke">
+        Warning ⚠️<br>
+        Includes: love, care, dumb jokes,
+        gaming rage support, and unlimited affection,even all the giftss you wished u had 😌
+    </p>
+<p>nandh khuchupuchu adi nod ni cutu tandh </P>
+    <h1>💖💖💖</h1>
+</div>
+
+<script>
+    function moveNo() {
+        const noBtn = document.getElementById("no");
+        const x = Math.random() * 200 - 100;
+        const y = Math.random() * 200 - 100;
+        noBtn.style.transform = `translate(${x}px, ${y}px)`;
+    }
+
+    function yesClicked() {
+        document.getElementById("card").style.display = "none";
+        document.getElementById("final").style.display = "block";
+        hearts();
+    }
+
+    function hearts() {
+        for (let i = 0; i < 35; i++) {
+            const heart = document.createElement("div");
+            heart.classList.add("heart");
+            heart.innerHTML = "❤️";
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.fontSize = Math.random() * 20 + 15 + "px";
+            heart.style.animationDuration = Math.random() * 2 + 3 + "s";
+            document.body.appendChild(heart);
+
+            setTimeout(() => heart.remove(), 4000);
+        }
+    }
+</script>
+
+</body>
+</html>
